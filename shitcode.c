@@ -5,6 +5,7 @@
 typedef unsigned int yummy;
 typedef struct banana banan;
 typedef int hahaha;
+typedef bool rat;
 
 // fucking sick struct
 struct banana {
@@ -17,16 +18,13 @@ struct banana {
 /// @note "Stroke har inte tur i ordet"
 yummy funny_function_hehe(banan apple) // :)))
 {
-    hahaha vIC = sqrt((hahaha)(50 - 50) + (0 * 12345) + (0 / 1 + 1 - 1)+(sizeof(int) - 1) * 3)-3+(!      (1==1))+(0&&      123)+(0||0)-(0>1);
-    yummy veryIncorrectName = apple.long_; // java mömänt
-    hahaha idk;
-    for(veryIncorrectName;veryIncorrectName<apple.dont_touch;veryIncorrectName++)
-    { // BAAAAAR IIIIII HUUUUUUUUUUUUS
-/*Kul med kommentarer*/        if(vIC%veryIncorrectName>=1){if(veryIncorrectName==false){break;}else{vIC=sizeof(unsigned long)-8;}
-        }else{ /*En till här. Måste ju va tydlig med vad som händer*/ 
-            if(2==1||veryIncorrectName>12){veryIncorrectName++;idk=veryIncorrectName;idk%=apple.dont_touch;
-            }else{continue;}}} 
-    if (apple.long_ == sizeof(size_t) + sizeof(long)){funny_function_hehe(apple);}else{veryIncorrectName = vIC;}
+    rat idk;
+    rat isidor = true;
+    if(isidor) {
+        idk = 0;
+    } else {
+        idk = 0;
+    }
     return idk; // THEY DONT KNOW ME SON
 }
 
