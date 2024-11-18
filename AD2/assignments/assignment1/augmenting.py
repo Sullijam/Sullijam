@@ -46,6 +46,15 @@ def augmenting(G: Graph, s: str, t: str) -> bool:
     Post:
     Ex:
     '''
+    visited = [[_, False] for _ in G.nodes]
+    def dfs(G: Graph, visited: List[List[str, bool]], node: str) -> None:
+        visited[visited.index([node, False])] = [node, True]
+
+        for i in G.neighbors(node):
+            print(1)
+
+
+
 
 
 def augmenting_extended(G: Graph,
@@ -55,7 +64,7 @@ def augmenting_extended(G: Graph,
     Post:
     Ex:
     '''
-
+    pass
 
 class AugmentingTest(unittest.TestCase):
     '''

@@ -66,14 +66,18 @@ def weightlifting_recursive(P: List[int], w: int, p: int) -> bool:
 # recursion variant:
 def weightlifting_top_down(P: List[int], w: int, dp_matrix: List[List[None]]) -> bool:
     '''
-    Pre:  for 0 <= i < len(P): P[i] >= 0
+    Pre:  for 0 <= i < len(P): P[i] >= 0, w >= 0
     Post:
     Ex:   dp_matrix  [[None, ..., None], ..., [None, ..., None]]]
           P = [2, 32, 234, 35, 12332, 1, 7, 56]
           weightlifting_top_down(P, 299, dp_matrix) returns True
           weightlifting_top_down(P, 11, dp_matrix) returns False
     '''
-    def helper_weightlifting(i, w):
+    def helper_weightlifting(i: int, w: int) -> bool:
+        '''
+        Pre: 
+        Post:
+        '''
         # Base case(s)
         if (w == 0):
             return True
