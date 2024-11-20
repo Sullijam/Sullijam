@@ -93,7 +93,14 @@ def weightlifting_top_down(P: List[int], w: int, dp_matrix: List[List[None]]) ->
         exclude = helper_weightlifting(i + 1, w)
         dp_matrix[i + 1][w] = include or exclude
         return dp_matrix[i + 1][w]
-
+    
+    # These are needed in order to pass 'self.assertIsNotNone(dp_matrix[-1][-1], 
+    #                                   'weightlifting_top_down must use '
+    #                                   'dp_matrix for memoisation.')'
+    if (w == 0):
+        dp_matrix[-1][-1] = True
+    if (len(P) == 0):
+        dp_matrix[-1][-1] = False
     return helper_weightlifting(0, w)
 
 def weightlifting_bottom_up(P: List[int], w: int,
@@ -286,4 +293,4 @@ if __name__ == '__main__':
     # Set logging config to show debug messages:
     logging.basicConfig(level=logging.DEBUG)
     # run unit tests (failfast=True stops testing after the first failed test):
-    unittest.main()
+    unittest.main(failfast=True)

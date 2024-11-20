@@ -46,12 +46,25 @@ def augmenting(G: Graph, s: str, t: str) -> bool:
     Post:
     Ex:
     '''
-    visited = [[_, False] for _ in G.nodes]
-    def dfs(G: Graph, visited: List[List[str, bool]], node: str) -> None:
-        visited[visited.index([node, False])] = [node, True]
+    visit = {}
+    for i in G.nodes:
+        visit[i] = False
+    return dfs(G, visit, s, t)
+    
 
-        for i in G.neighbors(node):
-            print(1)
+def dfs(g: Graph, visited: Dict[str, bool], node: str, sink: str) -> bool:
+    visited[node] = True
+    
+    if (node == sink):
+        return True
+    for i in g.neighbors(node):
+        if not visited[node]:
+            if (g.capacity(node, i) > g.flow(node, i)):
+                dfs(g, visited, i, sink)
+    return False
+    
+
+    
 
 
 
