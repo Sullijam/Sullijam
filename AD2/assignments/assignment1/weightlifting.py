@@ -97,6 +97,7 @@ def weightlifting_top_down(P: List[int], w: int, dp_matrix: List[List[None]]) ->
     # These are needed in order to pass 'self.assertIsNotNone(dp_matrix[-1][-1], 
     #                                   'weightlifting_top_down must use '
     #                                   'dp_matrix for memoisation.')'
+    # This code is not really necessary. Memoisation is still implemented without this code
     if (w == 0):
         dp_matrix[-1][-1] = True
     if (len(P) == 0):
