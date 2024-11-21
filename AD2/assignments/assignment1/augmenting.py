@@ -46,38 +46,50 @@ def augmenting(G: Graph, s: str, t: str) -> bool:
     Post:
     Ex:
     '''
-    visit = {}
-    for i in G.nodes:
-        visit[i] = False
-    return dfs(G, visit, s, t)
+    visited = set()
     
-
-def dfs(g: Graph, visited: Dict[str, bool], node: str, sink: str) -> bool:
-    visited[node] = True
-    
-    if (node == sink):
-        return True
-    for i in g.neighbors(node):
-        if not visited[node]:
-            if (g.capacity(node, i) > g.flow(node, i)):
-                dfs(g, visited, i, sink)
-    return False
-    
-
-    
-
-
+    def dfs(u):
+        if u == t:
+            return True
+        visited.add(u)
+        for v in G.neighbors(u):
+            if G.capacity(u, v) and (u, v) not in visited:
+                residual_capacity = G.capacity(u, v) - G.flow(u, v)
+                if residual_capacity > 0 and v not in visited:
+                    if dfs(v):
+                        return True
+        return False
+    return dfs(s)
 
 
 
 def augmenting_extended(G: Graph,
-                        s: str, t: str) -> Tuple[bool, List[Tuple[str, str]]]:
+                        s: str, t: str) -> Tuple[bool, List[Tuple[str, str]]]: 
     '''
     Pre:
     Post:
     Ex:
     '''
-    pass
+    visited = set()
+    path = []
+
+    def dfs(u):
+        if u == t:
+            return True
+        visited.add(u)
+        for v in G.neighbors(u):
+            if G.capacity(u, v) and (u, v) not in visited:
+                residual_capacity = G.capacity(u, v) - G.flow(u, v)
+                if residual_capacity > 0 and v not in visited:
+                    path.append((u, v))
+                    if dfs(v):
+                        return True
+                    path.pop()
+        return False
+
+    if dfs(s):
+        return True, path
+    return False, []
 
 class AugmentingTest(unittest.TestCase):
     '''
